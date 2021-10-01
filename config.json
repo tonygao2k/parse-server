@@ -1,0 +1,36 @@
+{
+    "production":false,
+    "port":80,
+    "debug_port":8080,
+    "ssl_port": 443,
+
+    "parse":{
+        "api":{
+            "serverURL": "http://192.168.1.102:8080/parse",
+            "publicServerURL": "http://192.168.1.102:8080/parse",
+            "databaseURI": "mongodb://192.168.1.102:27017/parsedb",
+            "appId": "123456",
+            "masterKey": "123456"
+        },
+
+        "dashboard":{
+            "apps": [
+                {
+                    "serverURL": "http://192.168.1.102:8080/parse",
+                    "appId": "123456",
+                    "masterKey": "123456",
+                    "appName": "TonyGao"
+                }
+            ],
+            "users": [
+                {
+                    "user":"admin",
+                    "pass":"admin"
+                }
+            ],
+            "options": {
+                "allowInsecureHTTP": true
+            }
+        }
+    }
+}
