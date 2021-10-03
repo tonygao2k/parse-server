@@ -7,7 +7,7 @@
         "api":{
             "serverURL": "http://192.168.1.102:8080/parse",
             "publicServerURL": "http://192.168.1.102:8080/parse",
-            "databaseURI": "mongodb://192.168.1.102:27017/parsedb",
+            "databaseURI": "mongodb://localhost:27017/parsedb",
             "appId": "123456",
             "masterKey": "123456",
             "liveQuery": {
