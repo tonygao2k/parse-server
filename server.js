@@ -15,14 +15,14 @@ app.all('*',  (req, res, next)=>{
 })
 
 let RedisCacheAdapter = require('parse-server').RedisCacheAdapter;
-config.api.cacheAdapter = new RedisCacheAdapter(config.redis);
-let api = new ParseServer(config.api);
+config.parseServer.cacheAdapter = new RedisCacheAdapter(config.redisCache);
+let parseServer = new ParseServer(config.parseServer);
 let dashboard = new ParseDashboard(config.dashboard.conf, config.dashboard.options);
 
-app.use('/parse', api);
+app.use('/parse', parseServer);
 app.use('/', dashboard);
 
-let attachedServer = null;
+let attachedServer;
 if (config.production) {
     let options = {
         key: fs.readFileSync('./cert/XXX.key'),
@@ -40,4 +40,4 @@ if (config.production) {
     });
 }
 
-ParseServer.createLiveQueryServer(attachedServer);
+ParseServer.createLiveQueryServer(attachedServer, config.liveQueryServer);
