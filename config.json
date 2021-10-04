@@ -2,6 +2,8 @@
   "production": false,
   "http_port": 8080,
   "https_port": 443,
+  "ssl_key":"",
+  "ssl_crt": "",
 
   "cacheAdapter": {
     "url": "redis://localhost:6379",

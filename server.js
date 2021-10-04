@@ -25,8 +25,8 @@ app.use('/', dashboard);
 let attachedServer;
 if (config.production) {
     let options = {
-        key: fs.readFileSync('./cert/XXX.key'),
-        cert: fs.readFileSync('./cert/XXX.crt')
+        key: fs.readFileSync(config.ssl_key),
+        cert: fs.readFileSync(config.ssl_crt)
     };
 
     attachedServer = require('https').createServer(options, app);
