@@ -17,7 +17,7 @@
     "websocketTimeout": 10000,
     "cacheTimeout": 86400000,
     "logLevel": "ERROR",
-    "cacheAdapter": "NEED TO BE FILLED BY CODE",
+    "cacheAdapter": "!!!NEED TO BE FILLED BY CODE!!!",
     "liveQuery": {
       "classNames": ["CodeWorld"],
       "redisURL": "redis://localhost:6379",
