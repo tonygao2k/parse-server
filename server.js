@@ -13,32 +13,27 @@ app.all('*',  (req, res, next)=>{
 })
 
 let RedisCacheAdapter = require('parse-server').RedisCacheAdapter;
-config.parse.api.cacheAdapter = new RedisCacheAdapter(config.parse.redis);
-let api = new ParseServer(config.parse.api);
-let dashboard = new ParseDashboard(config.parse.dashboard, config.parse.dashboard.options);
+config.api.cacheAdapter = new RedisCacheAdapter(config.redis);
+let api = new ParseServer(config.api);
+let dashboard = new ParseDashboard(config.dashboard.conf, config.dashboard.options);
 
 app.use('/parse', api);
 app.use('/', dashboard);
 
-let attachedServer;
-
+let attachedServer = null;
 if (config.production) {
     let options = {
         key: fs.readFileSync('./cert/XXX.key'),
         cert: fs.readFileSync('./cert/XXX.crt')
     };
 
-    let httpsServer = require('https').createServer(options, app);
-    attachedServer = httpsServer;
-
-    httpsServer.listen(config.https_port, () => {
+    attachedServer = require('https').createServer(options, app);
+    attachedServer.listen(config.https_port, () => {
         console.log('HTTPS is running on port', config.https_port);
     });
 } else {
-    let httpServer = require('http').createServer(app);
-    attachedServer = httpServer;
-
-    httpServer.listen(config.http_port, ()=> {
+    attachedServer = require('http').createServer(app);
+    attachedServer.listen(config.http_port, ()=> {
         console.log('HTTP is running on port ' + config.http_port);
     });
 }

@@ -1,21 +1,24 @@
 {
-  "production":false,
-  "http_port":8080,
+  "production": false,
+  "http_port": 8080,
   "https_port": 443,
 
-  "parse":{
-    "api":{
-      "serverURL": "http://192.168.1.102:8080/parse",
-      "publicServerURL": "http://192.168.1.102:8080/parse",
-      "databaseURI": "mongodb://localhost:27017/parsedb",
-      "appId": "123456",
-      "masterKey": "123456",
-      "liveQuery": {
-        "classNames": ["CodeWorld"]
-      }
-    },
+  "api": {
+    "serverURL": "http://192.168.1.102:8080/parse",
+    "publicServerURL": "http://192.168.1.102:8080/parse",
+    "databaseURI": "mongodb://localhost:27017/parsedb",
+    "appId": "123456",
+    "masterKey": "123456",
+    "websocketTimeout": 10000,
+    "cacheTimeout": 36000000,
+    "logLevel": "ERROR",
+    "liveQuery": {
+      "classNames": ["CodeWorld"]
+    }
+  },
 
-    "dashboard":{
+  "dashboard": {
+    "conf": {
       "apps": [
         {
           "serverURL": "http://192.168.1.102:8080/parse",
@@ -26,17 +29,17 @@
       ],
       "users": [
         {
-          "user":"admin",
-          "pass":"admin"
+          "user": "admin",
+          "pass": "admin"
         }
-      ],
-      "options": {
-        "allowInsecureHTTP": true
-      }
+      ]
     },
-
-    "redis": {
-      "url": "redis://localhost:6379"
+    "options": {
+      "allowInsecureHTTP": true
     }
+  },
+
+  "redis": {
+    "url": "redis://localhost:6379"
   }
 }
