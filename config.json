@@ -3,6 +3,11 @@
   "http_port": 8080,
   "https_port": 443,
 
+  "cacheAdapter": {
+    "url": "redis://localhost:6379",
+    "db": "0"
+  },
+
   "parseServer": {
     "serverURL": "http://192.168.1.102:8080/parse",
     "publicServerURL": "http://192.168.1.102:8080/parse",
@@ -12,13 +17,13 @@
     "websocketTimeout": 10000,
     "cacheTimeout": 86400000,
     "logLevel": "ERROR",
-    "cacheAdapter": "",
+    "cacheAdapter": "NEED TO BE FILLED BY CODE",
     "liveQuery": {
       "classNames": ["CodeWorld"],
       "redisURL": "redis://localhost:6379",
       "redisOptions": {
         "socket_keepalive": true,
-        "db":"0"
+        "db":"1"
       }
     }
   },
@@ -27,13 +32,8 @@
     "redisURL": "redis://localhost:6379",
     "redisOptions": {
       "socket_keepalive": true,
-      "db":"0"
+      "db":"1"
     }
-  },
-
-  "redisCache": {
-    "url": "redis://localhost:6379",
-    "db": "1"
   },
 
   "dashboard": {
