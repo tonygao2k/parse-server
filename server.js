@@ -1,9 +1,11 @@
+const compression = require('compression');
 const app = require('express')();
 const fs = require('fs');
 const ParseServer = require('parse-server').ParseServer;
 const ParseDashboard = require('parse-dashboard');
 const config = require('./config.json');
 
+app.use(compression());
 app.all('*',  (req, res, next)=>{
     res.header('Access-Control-Allow-Origin', req.headers.origin || '*');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
