@@ -12,6 +12,8 @@ app.all('*',  (req, res, next)=>{
     next();
 })
 
+let RedisCacheAdapter = require('parse-server').RedisCacheAdapter;
+config.parse.api.cacheAdapter = new RedisCacheAdapter(config.parse.redis);
 let api = new ParseServer(config.parse.api);
 let dashboard = new ParseDashboard(config.parse.dashboard, config.parse.dashboard.options);
 

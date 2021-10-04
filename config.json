@@ -1,38 +1,42 @@
 {
-    "production":false,
-    "http_port":8080,
-    "https_port": 443,
+  "production":false,
+  "http_port":8080,
+  "https_port": 443,
 
-    "parse":{
-        "api":{
-            "serverURL": "http://192.168.1.102:8080/parse",
-            "publicServerURL": "http://192.168.1.102:8080/parse",
-            "databaseURI": "mongodb://localhost:27017/parsedb",
-            "appId": "123456",
-            "masterKey": "123456",
-            "liveQuery": {
-                "classNames": ["CodeWorld", "GameScore"]
-            }
-        },
+  "parse":{
+    "api":{
+      "serverURL": "http://192.168.1.102:8080/parse",
+      "publicServerURL": "http://192.168.1.102:8080/parse",
+      "databaseURI": "mongodb://localhost:27017/parsedb",
+      "appId": "123456",
+      "masterKey": "123456",
+      "liveQuery": {
+        "classNames": ["CodeWorld"]
+      }
+    },
 
-        "dashboard":{
-            "apps": [
-                {
-                    "serverURL": "http://192.168.1.102:8080/parse",
-                    "appId": "123456",
-                    "masterKey": "123456",
-                    "appName": "TonyGao"
-                }
-            ],
-            "users": [
-                {
-                    "user":"admin",
-                    "pass":"admin"
-                }
-            ],
-            "options": {
-                "allowInsecureHTTP": true
-            }
+    "dashboard":{
+      "apps": [
+        {
+          "serverURL": "http://192.168.1.102:8080/parse",
+          "appId": "123456",
+          "masterKey": "123456",
+          "appName": "TonyGao"
         }
+      ],
+      "users": [
+        {
+          "user":"admin",
+          "pass":"admin"
+        }
+      ],
+      "options": {
+        "allowInsecureHTTP": true
+      }
+    },
+
+    "redis": {
+      "url": "redis://localhost:6379"
     }
+  }
 }
