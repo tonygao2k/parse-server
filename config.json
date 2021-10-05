@@ -5,21 +5,17 @@
   "ssl_key":"",
   "ssl_crt": "",
 
-  "cacheAdapter": {
-    "url": "redis://localhost:6379",
-    "db": "0"
-  },
-
   "parseServer": {
+    "appId": "123456",
+    "masterKey": "123456",
     "serverURL": "http://192.168.1.102:8080/parse",
     "publicServerURL": "http://192.168.1.102:8080/parse",
     "databaseURI": "mongodb://localhost:27017/parsedb",
-    "appId": "123456",
-    "masterKey": "123456",
-    "websocketTimeout": 10000,
-    "cacheTimeout": 86400000,
     "logLevel": "ERROR",
-    "cacheAdapter": "!!!NEED TO BE FILLED BY CODE!!!",
+    "cacheAdaptorOptions": {
+      "url": "redis://localhost:6379",
+      "db": "0"
+    },
     "liveQuery": {
       "classNames": ["CodeWorld"],
       "redisURL": "redis://localhost:6379",
@@ -27,14 +23,6 @@
         "socket_keepalive": true,
         "db":"1"
       }
-    }
-  },
-
-  "liveQueryServer" : {
-    "redisURL": "redis://localhost:6379",
-    "redisOptions": {
-      "socket_keepalive": true,
-      "db":"1"
     }
   },
 
@@ -57,6 +45,22 @@
     },
     "options": {
       "allowInsecureHTTP": true
+    }
+  },
+
+  "liveQueryServer" : {
+    "http_port": 18080,
+    "https_port": 443,
+    "appId": "123456",
+    "masterKey": "123456",
+    "serverURL": "http://192.168.1.102:8080/parse",
+    "websocketTimeout": 10000,
+    "cacheTimeout": 86400000,
+    "logLevel": "ERROR",
+    "redisURL": "redis://localhost:6379",
+    "redisOptions": {
+      "socket_keepalive": true,
+      "db":"1"
     }
   }
 }
