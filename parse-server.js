@@ -35,5 +35,5 @@ if (config.production) {
 }
 
 attachedServer.listen(port, ()=> {
-    console.log('LIVE_QUERY_SERVER is running on port ' + port);
+    console.log('PARSE_SERVER is running on port ' + port);
 });

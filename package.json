@@ -7,9 +7,9 @@
     "node": ">=14.0"
   },
   "scripts": {
-    "parse-server": "node parse-server.js",
-    "live-query": "node live-query.js",
-    "test": "node test.js"
+    "parse-server": "node parse-server",
+    "live-query": "node live-query",
+    "test": "node test"
   },
   "dependencies": {
     "express": "^4.17.1",
