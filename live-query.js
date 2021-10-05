@@ -1,6 +1,17 @@
 const ParseServer = require('parse-server').ParseServer;
 const config = require('./live-query.json');
 
+/*
+    Workaround:
+    -- To enable log control for live-query, Must have an instance of parse-server with correct logLevel setting
+    -- This is difference from the official document but works ...
+*/
+new ParseServer({
+    "appId": config.liveQueryServer.appId,
+    "masterKey": config.liveQueryServer.masterKey,
+    "logLevel": config.liveQueryServer.logLevel
+});
+
 let attachedServer = require('http').createServer();
 let port = config.http_port;
 

@@ -10,6 +10,7 @@
     "masterKey": "123456",
     "serverURL": "http://192.168.1.102:8080/parse",
     "websocketTimeout": 10000,
+    "cacheTimeout": 86400000,
     "logLevel": "ERROR",
     "redisURL": "redis://localhost:6379",
     "redisOptions": {

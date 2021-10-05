@@ -8,7 +8,8 @@
   },
   "scripts": {
     "parse-server": "node parse-server.js",
-    "live-query": "node live-query"
+    "live-query": "node live-query.js",
+    "test": "node test.js"
   },
   "dependencies": {
     "express": "^4.17.1",
