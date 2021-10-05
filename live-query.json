@@ -1,0 +1,20 @@
+{
+  "production": false,
+  "http_port": 18080,
+  "https_port": 1443,
+  "ssl_key":"",
+  "ssl_cert": "",
+
+  "liveQueryServer" : {
+    "appId": "123456",
+    "masterKey": "123456",
+    "serverURL": "http://192.168.1.102:8080/parse",
+    "websocketTimeout": 10000,
+    "logLevel": "ERROR",
+    "redisURL": "redis://localhost:6379",
+    "redisOptions": {
+      "socket_keepalive": true,
+      "db": "1"
+    }
+  }
+}

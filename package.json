@@ -7,10 +7,10 @@
     "node": ">=14.0"
   },
   "scripts": {
-    "start": "node server.js"
+    "parse-server": "node parse-server.js",
+    "live-query": "node live-query"
   },
   "dependencies": {
-    "compression": "^1.7.4",
     "express": "^4.17.1",
     "parse-dashboard": "^3.1.1",
     "parse-server": "^4.10.4"

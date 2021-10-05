@@ -1,0 +1,45 @@
+{
+  "production": false,
+  "http_port": 8080,
+  "https_port": 443,
+  "ssl_key":"",
+  "ssl_cert": "",
+
+  "parseServer": {
+    "appId": "123456",
+    "masterKey": "123456",
+    "serverURL": "http://192.168.1.102:8080/parse",
+    "publicServerURL": "http://192.168.1.102:8080/parse",
+    "databaseURI": "mongodb://localhost:27017/parsedb",
+    "logLevel": "ERROR",
+    "cacheAdaptorOptions": {
+      "url": "redis://localhost:6379",
+      "db": "0"
+    },
+    "liveQuery": {
+      "classNames": ["CodeWorld"],
+      "redisURL": "redis://localhost:6379",
+      "redisOptions": {
+        "socket_keepalive": true,
+        "db":"1"
+      }
+    }
+  },
+
+  "dashboard": {
+    "apps": [
+      {
+        "serverURL": "http://192.168.1.102:8080/parse",
+        "appId": "123456",
+        "masterKey": "123456",
+        "appName": "TonyGao"
+      }
+    ],
+    "users": [
+      {
+        "user": "admin",
+        "pass": "admin"
+      }
+    ]
+  }
+}
