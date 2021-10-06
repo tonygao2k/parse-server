@@ -2,7 +2,7 @@ const app = require('express')();
 const ParseServer = require('parse-server').ParseServer;
 const RedisCacheAdapter = require('parse-server').RedisCacheAdapter;
 const ParseDashboard = require('parse-dashboard');
-const config = require('./parse-server.json');
+const config = require('./config/parse-server.json');
 
 config.parseServer.cacheAdapter = new RedisCacheAdapter(config.parseServer.cacheAdaptorOptions);
 config.dashboard.options = {"allowInsecureHTTP": !config.production};
