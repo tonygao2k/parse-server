@@ -43,3 +43,6 @@ uploads
 
 # dependencie
 /node_modules/
+
+# lock
+*.lock
