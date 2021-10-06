@@ -41,5 +41,5 @@ uploads
 # Created by .ignore support plugin (hsz.mobi)
 .idea/
 
-# dependencies
-#/node_modules
+# dependencie
+/node_modules/
