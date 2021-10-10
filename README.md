@@ -1,11 +1,11 @@
 
 ## Table of Contents
 
-- [How to build](#How to install)
-- [How to config server](#How to config)
-- [npm run parse-server](#start parse server)
-- [npm run live-query ](#start live query server)
-- [npm run test](#quick test)
+- [Table of Contents](#table-of-contents)
+  - [How to install](#how-to-install)
+  - [start parse server](#start-parse-server)
+  - [start live query server](#start-live-query-server)
+  - [quick test](#quick-test)
 
 ### How to install
 yarn install
