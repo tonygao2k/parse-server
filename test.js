@@ -2,17 +2,20 @@ const app = require('express')();
 const ParseServer = require('parse-server').ParseServer;
 const ParseDashboard = require('parse-dashboard');
 
+let mongodbURL = 'mongodb://127.0.0.1:27017/parsedb';
+let serverURL = 'http://127.0.0.1:8081/parse';
+
 let api = new ParseServer({
     appId: '123456',
     masterKey: '123456',
-    serverURL: 'http://192.168.1.102:8081/parse',
-    databaseURI: 'mongodb://localhost:27017/parsedb'
+    serverURL: serverURL,
+    databaseURI: mongodbURL
 });
 
 let dashboard = new ParseDashboard({
     apps: [
         {
-            serverURL: 'http://192.168.1.102:8081/parse',
+            serverURL: serverURL,
             appId: '123456',
             masterKey: '123456',
             appName: 'TonyGao'
