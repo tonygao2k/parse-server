@@ -1,7 +1,7 @@
 
 ## Table of Contents
 
-- [Table of Contents](#table-of-contents)
+  - [Table of Contents](#table-of-contents)
   - [How to install](#how-to-install)
   - [start parse server](#start-parse-server)
   - [start live query server](#start-live-query-server)
