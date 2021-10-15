@@ -17,7 +17,7 @@
       "db": "0"
     },
     "liveQuery": {
-      "classNames": ["CodeWorld"],
+      "classNames": ["Test"],
       "redisURL": "redis://localhost:6379",
       "redisOptions": {
         "socket_keepalive": true,

@@ -1,8 +1,7 @@
 const ParseServer = require('parse-server').ParseServer;
 const config = require('./config/live-query.json');
 
-let attachedServer = require('http').createServer();
-let port = config.http_port;
+let attachedServer, port;
 
 if (config.production) {
     const fs = require('fs');
@@ -13,6 +12,9 @@ if (config.production) {
 
     attachedServer = require('https').createServer(options);
     port = config.https_port;
+} else {
+    attachedServer = require('http').createServer();
+    port = config.http_port;
 }
 
 attachedServer.listen(port, ()=> {

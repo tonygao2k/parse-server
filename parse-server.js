@@ -20,8 +20,7 @@ app.all('*',  (req, res, next)=>{
 app.use('/parse', api);
 app.use('/', dashboard);
 
-let attachedServer = require('http').createServer(app);
-let port = config.http_port;
+let attachedServer, port;
 
 if (config.production) {
     const fs = require('fs');
@@ -32,6 +31,10 @@ if (config.production) {
 
     attachedServer = require('https').createServer(options, app);
     port = config.https_port;
+} else {
+    attachedServer = require('http').createServer(app);
+    port = config.http_port;
+
 }
 
 attachedServer.listen(port, ()=> {
