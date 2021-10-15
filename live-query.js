@@ -1,7 +1,7 @@
 const ParseServer = require('parse-server').ParseServer;
 const config = require('./config/live-query.json');
 
-let attachedServer, port;
+let attachedServer = null, port = 0;
 
 if (config.production) {
     const fs = require('fs');
@@ -17,20 +17,19 @@ if (config.production) {
     port = config.http_port;
 }
 
-attachedServer.listen(port, ()=> {
-    console.log('LIVE_QUERY_SERVER is running on port ' + port);
-});
+if (attachedServer !== null && port !== 0) {
+    attachedServer.listen(port, ()=> {
+        console.log('LIVE_QUERY_SERVER is running on port ' + port);
+    });
 
-/*
-  Workaround:
-  -- To enable log control, Must have an instance of parse-server with correct logLevel setting
-  -- It is difference from the official document but works ...
-*/
-new ParseServer({
-    appId: "NOT_ALLOWED_TO_ACCESS",
-    masterKey: "NOT_ALLOWED_TO_ACCESS",
-    databaseURI: require('./config/parse-server.json').parseServer.databaseURI,
-    logLevel: require('./config/parse-server.json').parseServer.logLevel
-});
+    new ParseServer({
+        appId: "NOT_ALLOWED_TO_ACCESS",
+        masterKey: "NOT_ALLOWED_TO_ACCESS",
+        databaseURI: require('./config/parse-server.json').parseServer.databaseURI,
+        logLevel: require('./config/parse-server.json').parseServer.logLevel
+    });
 
-ParseServer.createLiveQueryServer(attachedServer, config.liveQueryServer);
+    ParseServer.createLiveQueryServer(attachedServer, config.liveQueryServer);
+} else {
+    console.log("NO ATTACHED SERVER");
+}

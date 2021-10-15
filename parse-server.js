@@ -20,7 +20,7 @@ app.all('*',  (req, res, next)=>{
 app.use('/parse', api);
 app.use('/', dashboard);
 
-let attachedServer, port;
+let attachedServer = null, port = 0;
 
 if (config.production) {
     const fs = require('fs');
@@ -29,14 +29,17 @@ if (config.production) {
         cert: fs.readFileSync(config.ssl_cert)
     };
 
-    attachedServer = require('https').createServer(options, app);
+    attachedServer = require('https').createServer(options);
     port = config.https_port;
 } else {
-    attachedServer = require('http').createServer(app);
+    attachedServer = require('http').createServer();
     port = config.http_port;
-
 }
 
-attachedServer.listen(port, ()=> {
-    console.log('PARSE_SERVER is running on port ' + port);
-});
+if (attachedServer !== null && port !== 0) {
+    attachedServer.listen(port, ()=> {
+        console.log('PARSE_SERVER is running on port ' + port);
+    });
+} else {
+    console.log("NO ATTACHED SERVER");
+}
